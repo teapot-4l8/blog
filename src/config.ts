@@ -7,15 +7,15 @@ import type {
 import { LinkPreset } from './types/config'
 
 export const siteConfig: SiteConfig = {
-  title: '会写点代码的本子画手',
-  subtitle: 'Demo Site',
-  lang: 'en',         // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko'
+  title: '主页',
+  subtitle: '你看不到我',
+  lang: 'zh_CN',         // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko'
   themeColor: {
     hue: 250,         // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
     fixed: false,     // Hide the theme color picker for visitors
   },
   banner: {
-    enable: false,
+    enable: true,
     src: 'assets/images/demo-banner.png',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
     position: 'center',      // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
     credit: {
@@ -42,6 +42,7 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Home,
     LinkPreset.Archive,
     LinkPreset.About,
+    LinkPreset.Shop,  // 添加在这里，就可以显示在主页面上了
     {
       name: 'GitHub',
       url: 'https://github.com/teapot-4l8',     // Internal links should not include the base path, as it is automatically added
@@ -52,8 +53,8 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
   avatar: 'assets/images/demo-avatar.png',  // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-  name: 'Lorem Ipsum',
-  bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  name: '会写点代码的本子画手',
+  bio: '什么奇奇怪怪的东西都会一点',
   links: [
     {
       name: 'Steam',
@@ -72,6 +73,11 @@ export const profileConfig: ProfileConfig = {
       icon: 'simple-icons:pixiv',
       url: 'https://www.pixiv.net/users/72509422',
     },
+    {
+      name: 'email',
+      icon: 'heroicons-outline:chat-bubble-bottom-center-text',
+      url: 'mailto:cyz@ncepu.edu.cn'
+    }
   ],
 }
 
