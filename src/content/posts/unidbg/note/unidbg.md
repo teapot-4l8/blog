@@ -1,7 +1,6 @@
 ---
 title: unidbg笔记
 published: 2023-08-01
-description: This post demonstrates how to include embedded video in a blog post.
 tags: [笔记, unidbg, Java, English]
 category: 安卓逆向
 draft: false
