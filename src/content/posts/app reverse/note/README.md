@@ -2,7 +2,7 @@
 title: 安卓逆向工具书
 published: 2024-12-01
 description: "致力于可从中随时抄代码"
-tags: ["app逆向", "Java", "Javascript", "Python"]
+tags: ["app逆向", "Java", "Javascript", "Python", 笔记]
 category: 安卓逆向
 draft: false
 ---
