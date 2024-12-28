@@ -3,7 +3,7 @@ title: ios 逆向笔记
 published: 2024-04-01
 description: "How to use this blog template."
 tags: ["ios逆向", 笔记]
-category: ios逆向
+category: ios
 draft: false
 ---
 

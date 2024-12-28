@@ -1,7 +1,7 @@
 ---
 title: web爬虫基础知识
 published: 2023-08-01
-tags: [笔记, Python, Java, English]
+tags: [笔记, Python, Java, English, 爬虫]
 draft: false
 ---
 
