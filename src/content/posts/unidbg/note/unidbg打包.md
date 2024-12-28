@@ -3,7 +3,7 @@ title: unidbg 打包
 published: 2023-08-01
 description: This post demonstrates how to include embedded video in a blog post.
 tags: [笔记, unidbg, Java]
-category: 安卓
+category: Android
 draft: false
 ---
 
