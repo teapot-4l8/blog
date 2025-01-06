@@ -57,24 +57,24 @@ export const profileConfig: ProfileConfig = {
   bio: '一句话形容不了我',
   links: [
     {
-      name: 'Steam',
+      name: 'bilibili',
       icon: 'fa6-brands:bilibili',
       url: 'https://space.bilibili.com/344502026',
     },
     {
-      name: 'Twitter',
+      name: '推特是用来发疯的 当然不能给你们哈哈哈哈哈哈哈哈哈哈 posts暴露了我的xp',
       icon: 'fa6-brands:twitter',       // Visit https://icones.js.org/ for icon codes
                                         // You will need to install the corresponding icon set if it's not already included
                                         // `pnpm add @iconify-json/<icon-set-name>`
-      url: 'https://twitter.com',
+      url: 'https://onlyfans.com/zycnotfound',
     },
     {
-      name: 'GitHub',
+      name: 'pixiv',
       icon: 'simple-icons:pixiv',
       url: 'https://www.pixiv.net/users/72509422',
     },
     {
-      name: 'email',
+      name: '你看不见我',
       icon: 'heroicons-outline:chat-bubble-bottom-center-text',
       url: 'mailto:cyz@ncepu.edu.cn'
     }

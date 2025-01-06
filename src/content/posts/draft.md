@@ -2,6 +2,7 @@
 title: Draft Example
 published: 2022-07-01
 draft: true
+tags: [example]
 ---
 
 # This Article is a Draft
