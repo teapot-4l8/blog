@@ -4,6 +4,7 @@ published: 2023-10-01
 description: A simple example of a Markdown blog post.
 draft: false
 tags: [example]
+category: 通用知识
 ---
 
 # An h1 header

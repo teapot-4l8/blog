@@ -2,6 +2,7 @@
 title: jeb
 published: 2024-12-28
 description: jeb related tips
+category: 通用知识
 tags: [jeb, English]
 draft: false
 ---

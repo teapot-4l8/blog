@@ -3,6 +3,7 @@ title: Draft Example
 published: 2022-07-01
 draft: true
 tags: [example]
+category: 通用知识
 ---
 
 # This Article is a Draft
