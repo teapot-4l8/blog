@@ -106,3 +106,30 @@ F2设置断点
 ## 断点
 
 ![image-20240505190038588](IDA特训.assets/image-20240505190038588.png)
+
+
+
+# debug so file
+
+1. `adb push android_server64 /data/local/tmp/as75-64` change its name into `as75-64`
+2. `chmod 755 as75-64`
+3. `./as75-64`
+4. `adb forward tcp:23946 tcp:23946`
+
+## attach(IDA 7.5)
+
+PAY ATTENTION : make sure you have clicked your apps functional place to load the target so file 
+
+![image-20241228210148803](IDA特训.assets/image-20241228210148803.png)
+
+`ctrl F` to search your process name, like `com.xx.xx`. if you dont see it, `ctrl U` to refresh it. or right click, refresh.
+
+go to `Modules`, right click `quick search` search your package's name
+
+double click your target
+
+![image-20241228211131136](IDA特训.assets/image-20241228211131136.png)
+
+choose `Text view`, `F2` to set a breakpoint. `F8` to next step
+
+## launch(IDA 8.3)
