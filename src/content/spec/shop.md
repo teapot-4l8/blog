@@ -8,16 +8,15 @@
 
 为提高沟通效率，*计算机类填此表，如果可以做，我会联系您*
 
+<img src="shop.assets/image-20250106201545457.png" alt="image-20250106201545457" style="zoom:50%;" />
 
-<div style="text-align: center;">
-    <img src="/src/content/spec/shop.assets/image-20250106201545457.png" style="max-width: 50%; height: auto;" />
-</div>
+<!-- TODO 上线后显示不出图片 -->
 
 
 其它默认全部可接，＋Q `1372585211`,备注类型，加完后直接发我具体需求
 
 <div style="text-align: center;">
-    <img src="/src/content/spec/shop.assets/QQ.jpg" style="max-width: 30%; height: auto;" />
+    <img src="shop.assets/QQ.jpg" style="max-width: 30%; height: auto;" />
 </div>
 
 
