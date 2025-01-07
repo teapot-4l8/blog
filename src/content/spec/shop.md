@@ -10,13 +10,13 @@
 
 <img src="shop.assets/image-20250106201545457.png" alt="image-20250106201545457" style="zoom:50%;" />
 
-<!-- TODO 上线后显示不出图片 -->
+<!-- TODO 上线后显示不出图片 正常图片在/_astro目录下 -->
 
 
 其它默认全部可接，＋Q `1372585211`,备注类型，加完后直接发我具体需求
 
 <div style="text-align: center;">
-    <img src="shop.assets/QQ.jpg" style="max-width: 30%; height: auto;" />
+    <img src="/_astro/qq.bgnoauy1.jpg" style="max-width: 30%; height: auto;" />
 </div>
 
 
