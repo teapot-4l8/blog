@@ -4,6 +4,7 @@ published: 2023-08-01
 tags: [笔记, Python, Java, English, 爬虫]
 draft: false
 category: 网页爬虫
+lang: 'English'
 ---
 
 # basic knowledge
