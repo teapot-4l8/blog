@@ -21,11 +21,11 @@ or use 爱斯助手 the usb ones method
 
 frida https://frida.re/docs/ios/#with-jailbreak
 
-![image-20240204162351683](ios reverse.assets/image-20240204162351683.png)
+![image-20240204162351683](ios_reverse.assets/image-20240204162351683.png)
 
 you don't have to connect with computer via usb cab
 
-![image-20240204162634031](ios reverse.assets/image-20240204162634031.png)
+![image-20240204162634031](ios_reverse.assets/image-20240204162634031.png)
 
 windows can't connect with ios via usb... it seems like that it's drive should be changed...
 
@@ -79,11 +79,11 @@ cyz1nappleID
 
 ## install shit
 
-![image-20240205170313074](ios reverse.assets/image-20240205170313074.png)
+![image-20240205170313074](ios_reverse.assets/image-20240205170313074.png)
 
-![image-20240205170423763](ios reverse.assets/image-20240205170423763.png)
+![image-20240205170423763](ios_reverse.assets/image-20240205170423763.png)
 
-![image-20240205173052838](ios reverse.assets/image-20240205173052838.png)
+![image-20240205173052838](ios_reverse.assets/image-20240205173052838.png)
 
 
 
@@ -95,7 +95,7 @@ framework like lsp: `theos`
 
 ssh is similar to adb, it connects window with ios
 
-![image-20240204155711390](ios reverse.assets/image-20240204155711390.png)
+![image-20240204155711390](ios_reverse.assets/image-20240204155711390.png)
 
 if type yes, next time even if it's the same ip address but a difference SHA256, it will raise middle attack (?)
 
@@ -107,7 +107,7 @@ other user
 
 ## change password 
 
-![image-20240205181307565](ios reverse.assets/image-20240205181307565.png)
+![image-20240205181307565](ios_reverse.assets/image-20240205181307565.png)
 
 ## server ip changed it shows `man-in-middle attack`
 
@@ -119,9 +119,9 @@ move the cursor to the fine row, type`dd` to delete this row
 
 push`Esc` and type `:wq`
 
-![image-20240205191119086](ios reverse.assets/image-20240205191119086.png)
+![image-20240205191119086](ios_reverse.assets/image-20240205191119086.png)
 
-![image-20240205192001840](ios reverse.assets/image-20240205192001840.png)
+![image-20240205192001840](ios_reverse.assets/image-20240205192001840.png)
 
 # Share VPN
 
@@ -131,23 +131,23 @@ ur vpn android device
 
 v2yan: change socks5 and http port as the same number, allow coonections from the LAN
 
-![image-20240204154717911](ios reverse.assets/image-20240204154717911.png)
+![image-20240204154717911](ios_reverse.assets/image-20240204154717911.png)
 
 ur vpn not found window device
 
-![image-20240204154849614](ios reverse.assets/image-20240204154849614.png)
+![image-20240204154849614](ios_reverse.assets/image-20240204154849614.png)
 
 ios
 
-![image-20240204155023783](ios reverse.assets/image-20240204155023783.png)
+![image-20240204155023783](ios_reverse.assets/image-20240204155023783.png)
 
 this is clash. also change http and socks port and allow LAN
 
-![image-20240204155140042](ios reverse.assets/image-20240204155140042.png)
+![image-20240204155140042](ios_reverse.assets/image-20240204155140042.png)
 
-![image-20240204155441166](ios reverse.assets/image-20240204155441166.png)
+![image-20240204155441166](ios_reverse.assets/image-20240204155441166.png)
 
-![image-20240204155509561](ios reverse.assets/image-20240204155509561.png)
+![image-20240204155509561](ios_reverse.assets/image-20240204155509561.png)
 
 
 

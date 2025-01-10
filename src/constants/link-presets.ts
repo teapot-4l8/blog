@@ -18,5 +18,9 @@ export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
   [LinkPreset.Shop]: {
     name: i18n(I18nKey.shop),
     url: '/shop/',
+  },
+  [LinkPreset.Blogroll]: {
+    name: i18n(I18nKey.blogroll),
+    url: '/blogroll/',
   }
 }

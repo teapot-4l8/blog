@@ -42,6 +42,26 @@ in pycharm's market, search `Headers`. this plugin let you copy headers in devel
 ```
 
 
+## proxy
+
+use clash for example
+
+```python
+import requests
+
+url = "https://www.google.com.sg/"
+headers = {
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+}
+proxy = {
+    "http": "http://127.0.0.1:7890",
+    "https":"http://127.0.0.1:7890"
+}
+
+resp = requests.get(url, headers=headers, proxies=proxy)
+print(resp.text)
+```
+
 
 # extract data
 

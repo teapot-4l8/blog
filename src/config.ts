@@ -43,6 +43,7 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Archive,
     LinkPreset.About,
     LinkPreset.Shop,  // 添加在这里，就可以显示在主页面上了
+    LinkPreset.Blogroll,
     {
       name: 'GitHub',
       url: 'https://github.com/teapot-4l8',     // Internal links should not include the base path, as it is automatically added
@@ -60,6 +61,11 @@ export const profileConfig: ProfileConfig = {
       name: 'bilibili',
       icon: 'fa6-brands:bilibili',
       url: 'https://space.bilibili.com/344502026',
+    },
+    {
+      name: 'gayhub',
+      icon: 'fa6-brands:github',
+      url: 'https://github.com/teapot-4l8',
     },
     {
       name: '推特是用来发疯的 当然不能给你们哈哈哈哈哈哈哈哈哈哈 posts暴露了我的xp',

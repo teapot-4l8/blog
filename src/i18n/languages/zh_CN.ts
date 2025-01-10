@@ -6,7 +6,8 @@ export const zh_CN: Translation = {
   [Key.about]: '关于',
   [Key.archive]: '归档',
   [Key.search]: '搜索',
-  [Key.shop]: '接单',  // TODO 解决bug，一点进去就404
+  [Key.shop]: '接单', 
+  [Key.blogroll]: '友链',
 
   [Key.tags]: '标签',
   [Key.categories]: '分类',
