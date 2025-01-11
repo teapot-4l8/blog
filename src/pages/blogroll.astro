@@ -3,9 +3,9 @@
 import MainGridLayout from '../layouts/MainGridLayout.astro'
 
 import { getEntry } from 'astro:content'
-import { i18n } from '../i18n/translation'
-import I18nKey from '../i18n/i18nKey'
 import Markdown from '@components/misc/Markdown.astro'
+import I18nKey from '../i18n/i18nKey'
+import { i18n } from '../i18n/translation'
 
 const blogrollPost = await getEntry('spec', 'blogroll')
 
@@ -16,7 +16,19 @@ const blogrollPost = await getEntry('spec', 'blogroll')
         <div class="card-base z-10 px-9 py-6 relative w-full ">
             <Markdown class="mt-2">
                 <!-- <Content /> -->
+                <!-- {{ edit_1 }} 添加友链部分 -->
+                <div class="friend-links mt-8 p-6 bg-gray-100 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold text-center mb-4">友情链接</h2>
+                    <ul class="grid grid-cols-2 gap-4">
+                        <li class="text-center">
+                            <a href="https://192.168.0.1:1234" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">友链网站1</a>
+                        </li>
+                        <!-- 可以添加更多友链 -->
+                    </ul>
+                </div>
+                <!-- {{ edit_2 }} 结束友链部分 -->
             </Markdown>
         </div>
     </div>
+
 </MainGridLayout>

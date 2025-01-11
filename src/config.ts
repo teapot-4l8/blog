@@ -21,7 +21,7 @@ export const siteConfig: SiteConfig = {
     credit: {
       enable: false,         // Display the credit text of the banner image
       text: '',              // Credit text to be displayed
-      url: ''                // (Optional) URL link to the original artwork or artist's page
+      url: 'https://www.pixiv.net/users/72509422'                // (Optional) URL link to the original artwork or artist's page
     }
   },
   toc: {
