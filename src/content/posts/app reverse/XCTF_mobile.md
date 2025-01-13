@@ -1,6 +1,6 @@
 ---
 title: xctf mobile方向题目wp
-published: 2025-01-012
+published: 2025-01-12
 tags: [app逆向, Python, ctf]
 category: Android
 draft: false
