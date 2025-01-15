@@ -689,6 +689,11 @@ Java.perform(function() {
 
 ## 抓包问题
 
+### 速查
+
+- **开启代理后没有网络，抓包显示200**：安居客，尚亦城 `lsposed 使用Justtrustme.apk 框架，勾选对应的app，手机不需要重启,app重启即可`
+- **压根没有抓到(显示)目标包**：得物 `drony,SocksDroid,ProxyDroid`
+
 
 
 ### 客户端校验

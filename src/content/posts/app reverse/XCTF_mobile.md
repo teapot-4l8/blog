@@ -3,6 +3,7 @@ title: xctf mobile方向题目wp
 published: 2025-01-12
 tags: [app逆向, Python, ctf]
 category: Android
+description: xctf一部分题解，全是安卓，正在施工中 ......
 draft: false
 ---
 
@@ -835,7 +836,7 @@ reversed_str = reverse_encode(target)
 print("The value of str is:", reversed_str)
 ```
 
-here is the more concise version on the internet
+here is a more concise version on the internet
 
 ```python
 def decode(base64_str):
@@ -869,7 +870,6 @@ if __name__ == '__main__':
     for i in range(len(flag_1)//2):
         flag_2 += flag_1[i*2+1] + flag_1[i*2]
     print('前后两位调换位置：',flag_2)
-
     flag_3 = flag_2[len(flag_2)//2:] + flag_2[0:len(flag_2)//2]
     print('前后16位调换位置:',flag_3)
     print('解密后：',decode(flag_3))
