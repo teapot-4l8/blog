@@ -62,6 +62,50 @@ resp = requests.get(url, headers=headers, proxies=proxy)
 print(resp.text)
 ```
 
+## URLEncode
+
+Chinese -> shit like`%..`
+
+```
+https://www.sogou.com/web?query=%E5%90%83%E9%A5%AD%E7%9D%A1%E8%A7%89%E6%89%93%E8%B1%86%E8%B1%86&_asf=www.sogou.com&_ast=&w=01019900&p=40040100&ie=utf8&from=index-nologin&s_from=index&sut=3119&sst0=1630994614300&lkt=0%2C0%2C0&sugsuv=1606978591882752&sugtime=1630994614300
+```
+
+```python
+from urllib.parse import urlencode, unquote, quote
+
+# 单独编码字符串
+wq = "会写点代码的本子画手"
+print(quote(wq))  # '%E4%BC%9A%E5%86%99%E7%82%B9%E4%BB%A3%E7%A0%81%E7%9A%84%E6%9C%AC%E5%AD%90%E7%94%BB%E6%89%8B'
+print(quote(wq, encoding="gbk")) # '%BB%E1%D0%B4%B5%E3%B4%FA%C2%EB%B5%C4%B1%BE%D7%D3%BB%AD%CA%D6'
+
+# 多个数据统一进行编码
+dic = {
+    "wq": "本子画手是什么",
+    "new_wq": "在本子上画画的人"
+}
+
+print(urlencode(dic))  # %E6%9C%AC%E5%AD%90%E7%94%BB%E6%89%8B%E6%98%AF%E4%BB%80%E4%B9%88&new_wq=%E5%9C%A8%E6%9C%AC%E5%AD%90%E4%B8%8A%E7%94%BB%E7%94%BB%E7%9A%84%E4%BA%BA
+print(urlencode(dic, encoding="utf-8"))  # 也可以指定字符集
+
+# 一个完整的url编码过程
+base_url = "http://www.baidu.com/s?"
+params = {
+    "wd": "会写点代码的本子画手"
+}
+
+url = base_url + urlencode(params)
+print(url)  # http://www.baidu.com/s?wd=%E4%BC%9A%E5%86%99%E7%82%B9%E4%BB%A3%E7%A0%81%E7%9A%84%E6%9C%AC%E5%AD%90%E7%94%BB%E6%89%8B
+
+# url decode
+s = "http://www.baidu.com/s?wd=%E5%A4%A7%E7%8E%8B"
+print(unquote(s))  # http://www.baidu.com/s?wd=大王
+```
+
+
+
+
+
+
 
 # extract data
 
@@ -74,6 +118,8 @@ print(resp.text)
 ## xpath
 
 # thread & process
+
+
 
 
 # asyncio
@@ -380,3 +426,6 @@ chmod 644 /system/etc/security/cacerts/c8750f0d.0
 proxy 192.168.43.71
 
 port 8888
+
+
+

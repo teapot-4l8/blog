@@ -155,10 +155,6 @@ json_data = json.dumps(json_data, separators=(",", ":"))
 response = requests.post('https://edith.xiaohongshu.com/api/sns/web/v1/homefeed', cookies=cookies, headers=headers, data=json_data)
 ```
 
-
-
-
-
 ## Analysis tips
 
 ### `sent`
@@ -229,7 +225,7 @@ if you only want to search the word `X-S`, just type in x-s will contain a bunch
 
 # Convert to python
 
-pass
+(see 安卓逆向工具书 for codes)
 
 # Complement the environment
 
@@ -327,8 +323,6 @@ reverse to line 14, find the correct place!
 
 8期吧？
 
-## :triangular_flag_on_post:http://39.105.154.231:3000/play/68359 
-
 ## 有道翻译  https://fanyi.youdao.com/index.html#/ 
 
 - decrypt the response text 
@@ -358,7 +352,7 @@ B = function (e,t) {
 ```
 
 - `n.a(n.a({}, e)` can be seen as merging two objects `n.a({}, e)` -> `e` => `n.a(e, E(t))`
-- to figure out who the fuck calls B, check out Call Stack on right panel
+- to figure out who the fuck calls B, check out Call Stack on the right panel
 
 - codes that related to the response data
 

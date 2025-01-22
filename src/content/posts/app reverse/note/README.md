@@ -289,7 +289,7 @@ print(front_app)
 
 ## 有用的网址
 
-https://1024tools.com/hash 各种加密 方便查看
+https://1024tools.com/hash 各种hash加密123456 方便查看
 
 https://curlconverter.com/  curl转其它语言
 
@@ -1676,7 +1676,7 @@ rpc.exports = {
 script = session.create_script(scr)
 script.load()
 
-arg_bytes = "武沛齐".encode('utf-8')  # b'\xb2\xe6..\x..'
+arg_bytes = "会写点代码的本子画手".encode('utf-8')  # b'\xb2\xe6..\x..'
 byte_list = [i for i in arg_bytes]  # [230, 173, 166, ...]
 script.exports.encrypt(byte_list)
 ```
@@ -1709,7 +1709,7 @@ rpc.exports = {
 script = session.create_script(scr)
 script.load()
 
-script.exports.encrypt("武沛齐", "666")
+script.exports.encrypt("会写点代码的本子画手", "666")
 ```
 
 ```python
@@ -1874,7 +1874,7 @@ import java.util.Base64;
 
 public class Hello {
     public static void main(String[] args) throws Exception {
-        String data = "武沛齐";
+        String data = "会写点代码的本子画手";
         String key = "fd6b639dbcff0c2a1b03b389ec763c4b";
         String iv = "77b07a672d57d64c";	
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");    
@@ -1908,7 +1908,7 @@ def aes_encrypt(data_string):
     raw = pad(data_string.encode('utf-8'), 16)
     return aes.encrypt(raw)
 
-data = aes_encrypt("武沛齐")
+data = aes_encrypt("会写点代码的本子画手")
 print(data)
 print([i for i in data])
 # [90, 225, 86, 181, 156, 148, 2, 159, 200, 207, 55, 108, 254, 122, 41, 252]
@@ -1916,12 +1916,14 @@ print([i for i in data])
 
 ## base64编码(字节->字符串)
 
+[A-Z, a-z, 0-9, +, /]
+
 ```java
 import java.util.Base64;
 
 public class Hello {
     public static void main(String[] args) {
-        String name = "武沛齐";
+        String name = "会写点代码的本子画手";
         // 编码
         Base64.Encoder encoder  = Base64.getEncoder();
         String res = encoder.encodeToString(name.getBytes());
@@ -1930,7 +1932,7 @@ public class Hello {
         Base64.Decoder decoder  = Base64.getDecoder();
         byte[] origin = decoder.decode(res);
         String data = new String(origin);
-        System.out.println(data); // 武沛齐
+        System.out.println(data); // 会写点代码的本子画手
     }
 }
 ```
@@ -1939,13 +1941,27 @@ public class Hello {
 
 ```python
 import base64
-name = "武沛齐"
-res = base64.b64encode(name.encode('utf-8'))
-print(res) # b'5q2m5rKb6b2Q'
-data = base64.b64decode(res)
+name = "会写点代码的本子画手"
+bs = base64.b64encode(name.encode('utf-8'))
+print(bs) # b'5Lya5YaZ54K55Luj56CB55qE5pys5a2Q55S75omL'
+
+data = base64.b64decode(bs)
+print(data)  # b'\xe4\xbc\x9a\xe5\x86\x99\xe7\x82\xb9\xe4\xbb\xa3\xe7\xa0\x81\xe7\x9a\x84\xe6\x9c\xac\xe5\xad\x90\xe7\x94\xbb\xe6\x89\x8b'
 origin = data.decode('utf-8')
-print(origin) # "武沛齐"
-# 不同，换行符 + ==
+print(origin) # "会写点代码的本子画手"
+
+# 把字节处理成Base64字符串，记下来
+base64_str = base64.b64encode(bs).decode()
+print(base64_str)
+
+# base64还原成字节
+bs = base64.b64decode(base64_str)
+print(bs)
+
+# 某些网站的特殊处理
+# replace("-", "+").replace("_", "/")
+bs = base64.b64decode(s, b"-_")  # 如果无法解密，调换顺序b'-
+print(bs)
 ```
 
 ## aes与base64
@@ -2001,7 +2017,7 @@ import java.util.Base64;
 
 public class Hello {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        String name = "武沛齐";
+        String name = "会写点代码的本子画手";
         MessageDigest instance = MessageDigest.getInstance("SHA-256");
         byte[] nameBytes = instance.digest(name.getBytes());
         // System.out.println(Arrays.toString(nameBytes));
@@ -2040,6 +2056,8 @@ print(res)
 ```
 
 ## sha1
+
+`123456` -> `7c4a...`
 
 ### java
 
@@ -2086,11 +2104,9 @@ MessageDigest.update.overload("[B").implementation = function (data) {
 }
 ```
 
-
-
-
-
 ## md5
+
+字符串组成：0-9 a-f (16进制)，把123456传进去，结果`e10`开头，是标准md5。
 
 ### java
 
@@ -2102,7 +2118,7 @@ import java.util.Base64;
 
 public class Hello {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        String name = "武沛齐";
+        String name = "会写点代码的本子画手";
         MessageDigest instance = MessageDigest.getInstance("MD5");
         byte[] nameBytes = instance.digest(name.getBytes());       
         // 十六进制展示
@@ -2123,33 +2139,35 @@ public class Hello {
 ### python
 
 ```python
-data_string = "武沛齐"
+# from hashlib import md5
+import hashlib
+data_string = "会写点代码的本子画手"
 def md5_h(data_string):
-    obj = hashlib.md5()
+    obj = hashlib.md5()  # 这行不可以放在外面
     obj.update(data_string.encode("utf-8"))
     # 原始的加密结果
-    v1 = md5.digest()
-	print(v1) # b'\x175\x10\x12G$)\xd5-\x0c\r#\xd4h\x17='
+    v1 = obj.digest()
+	print(v1) # b'D\xeaEf\x97\xab\xce\xde\x86\xa3\x8f7\xeb\x0e\xbd\xfa'
     # 得到十六进制字符串。java中没有这个功能
     hex_string = obj.hexdigest()
-    # print(hex_string) # 17351012472429d52d0c0d23d468173d
+    # print(hex_string) # 44ea456697abcede86a38f37eb0ebdfa
     return hex_string
 ```
 
 ### 加盐
 
 ```java
-    String name = "武沛齐";
+    String name = "会写点代码的本子画手";
     MessageDigest instance = MessageDigest.getInstance("MD5");
-    instance.update("xxxxxx".getBytes());//只是多了这一行
+    instance.update("xxxxxx".getBytes());  //只是多了这一行
 ```
 
 ```python
 import hashlib
-m = hashlib.md5("xxxxxx".encode('utf-8'))
-m.update("武沛齐".encode("utf-8"))
+m = hashlib.md5("xxxxxx".encode('utf-8'))  # salt
+m.update("会写点代码的本子画手".encode("utf-8"))
 v2 = m.hexdigest()
-print(v2) # 17351012472429d52d0c0d23d468173d
+print(v2) # 'cd972488db69e949230996b29c3ad90d'
 ```
 
 ## 隐藏字节
@@ -2288,7 +2306,7 @@ deviceCode = stringBuffer.toString();
 ### python
 
 ```python
-# name_bytes = "武沛齐".encode('utf-8')
+# name_bytes = "会写点代码的本子画手".encode('utf-8')
 name_bytes = [10, -26, -83, -90, -26, -78, -101, -23, -67, -112]
 
 data_list = []
