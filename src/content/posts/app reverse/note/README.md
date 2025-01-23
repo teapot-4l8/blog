@@ -7,8 +7,6 @@ category: Android
 draft: false
 ---
 
-
-
 [TOC]
 
 # 常用基础
@@ -1270,13 +1268,35 @@ def byte2str(byte_list):
 byte2str(byte_list)
 ```
 
-## 字节 -> 十六进制(Hex)字符串
+## 字节 <-> 十六进制(Hex)字符串
+
+***两个数字 <-> 一个字节***
+
+byte -> hex
 
 ```python
-bytes_data = b'\x9f\x1bVbf\x12\xa73\x91\xe5\x90\xb3fN\xe6\xfb'
+bytes_data = b'\xe5\xb0\x8fJR\xe5\x96\x9c\xe6\xac\xa2\xe5\x90\x83\xe7\x8b\xb1\xe5\x8d\x92'
+print(bytes_data.decode('utf-8'))  # 小JR喜欢吃狱卒
 #       去除前面的0x 不满两位补0
 result = "".join([hex(item)[2:].rjust(2, "0") for item in bytes_data])
-print(result)
+print(result)  # e5b08f4a52e5969ce6aca2e59083e78bb1e58d92
+```
+```python
+import binascii
+bs = "小JR喜欢吃狱卒".encode("utf-8")
+print(bs)  # b'\xe5\xb0\x8fJR\xe5\x96\x9c\xe6\xac\xa2\xe5\x90\x83\xe7\x8b\xb1\xe5\x8d\x92'
+result = binascii.b2a_hex(bs)
+print(result)  # b'e5b08f4a52e5969ce6aca2e59083e78bb1e58d92'
+print(result.decode("utf-8"))  # e5b08f4a52e5969ce6aca2e59083e78bb1e58d92 
+```
+
+hex -> byte
+
+```python
+hex_string = "e5b08f4a52e5969ce6aca2e59083e78bb1e58d92"
+byte_ = binascii.a2b_hex(hex_string)
+print(byte_)  # b'\xe5\xb0\x8fJR\xe5\x96\x9c\xe6\xac\xa2\xe5\x90\x83\xe7\x8b\xb1\xe5\x8d\x92'
+print(byte_.decode("utf-8"))  # 小JR喜欢吃狱卒
 ```
 
 ## 字节数组 -> 十六进制(Hex)字符串
@@ -1853,7 +1873,52 @@ def des3(data_string):
     return base64.b64encode(result).decode('utf-8')
 ```
 
-## AES(对称)
+DES
+
+- 加密
+
+```python
+from Crypto.Cipher import DES
+from Crypto.Util.Padding import pad
+import base64
+
+s = "小JR❤狱卒"
+byte_s = s.encode("utf-8")
+des = DES.new(key=b'12345678', iv=b'12345678', mode=DES.MODE_CBC)
+byte_s = pad(byte_s, 8) # ValueError: Data must be padded to 8 byte boundary in CBC mode
+encrypted_byte = des.encrypt(byte_s)
+print(encrypted_byte)  # b'\x05\xcf\\(\xaa\x07\x9b\xe68\x0e\x15A.\xa3\xba\xdb'
+encrypted_s = base64.b64encode(encrypted_byte).decode()
+print(encrypted_s) # Bc9cKKoHm+Y4DhVBLqO62w==
+```
+
+- 解密
+
+```python
+from Crypto.Util.Padding import pad, unpad
+encrypted_s = "Bc9cKKoHm+Y4DhVBLqO62w=="
+encrypted_byte = base64.b64decode(encrypted_s)
+des = DES.new(key=b'12345678', iv=b'12345678', mode=DES.MODE_CBC)
+decrypted_byte = des.decrypt(encrypted_byte)
+decrypted_byte = unpad(decrypted_byte, 8)
+print(decrypted_byte.decode("utf-8"))
+```
+
+
+
+## AES(对称) 与base64
+
+如果给的key是32位十六进制字符串，那么大概率是16位的byte
+
+   - 16: *AES-128*
+   - 24: *AES-192*
+   - 32: *AES-256*
+
+mode: CBC(需要16位字节的iv), ECB(无iv)
+
+**加密: 明文Str > byte > pad填充 > encrypt > 密文byte > base64 | hex string > 加密Str**
+
+**解密: 明文Str < byte < unpad < decrypt < 密文byte < base64 | hex string < 加密Str**
 
 ### java
 
@@ -1909,9 +1974,25 @@ def aes_encrypt(data_string):
     return aes.encrypt(raw)
 
 data = aes_encrypt("会写点代码的本子画手")
-print(data)
+print(data)  # b"\x8b'\xedT\xd2j\xc1C\xeb\x83=\x16\x94|\xe4\xc3\x90wnV\x85\xb7\xb1fHb}\x81\xc3)W\xe4"
+# 然后需要用base64处理成字符串发送请求
+print(base64.b64encode(data).decode())  # iyftVNJqwUPrgz0WlHzkw5B3blaFt7FmSGJ9gcMpV+Q=
+
 print([i for i in data])
-# [90, 225, 86, 181, 156, 148, 2, 159, 200, 207, 55, 108, 254, 122, 41, 252]
+# [139, 39, 237, 84, 210, 106, 193, 67, 235, 131, 61, 22, 148, 124, 228, 195, 144, 119, 110, 86, 133, 183, 177, 102, 72, 98, 125, 129, 195, 41, 87, 228]
+```
+
+解密
+
+```python
+data = 'iyftVNJqwUPrgz0WlHzkw5B3blaFt7FmSGJ9gcMpV+Q='
+byte_data = base64.b64decode(data)
+print(byte_data)  # b"\x8b'\xedT\xd2j\xc1C\xeb\x83=\x16\x94|\xe4\xc3\x90wnV\x85\xb7\xb1fHb}\x81\xc3)W\xe4"
+aes = AES.new(key=b"fd6b639dbcff0c2a1b03b389ec763c4b", iv=b"77b07a672d57d64c", mode=AES.MODE_CBC)
+real_byte_data = aes.decrypt(byte_data)
+print(real_byte_data) # b'\xe4\xbc\x9a\xe5\x86\x99\xe7\x82\xb9\xe4\xbb\xa3\xe7\xa0\x81\xe7\x9a\x84\xe6\x9c\xac\xe5\xad\x90\xe7\x94\xbb\xe6\x89\x8b\x02\x02'
+print(real_byte_data.decode("utf-8")) # 会写点代码的本子画手  如果在加密时做了填充，可以把后面填充的东西干掉
+# real_byte_data = unpad(real_byte_data, 16)
 ```
 
 ## base64编码(字节->字符串)
@@ -1963,47 +2044,6 @@ print(bs)
 bs = base64.b64decode(s, b"-_")  # 如果无法解密，调换顺序b'-
 print(bs)
 ```
-
-## aes与base64
-
-```python
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import pad
-import base64
-
-def aes_encrypt(data_string, key):
-    aes = AES.new(
-        key=key.encode('utf-8'),
-        mode=AES.MODE_ECB,
-    )
-    raw = pad(data_string.encode('utf-8'), 16)
-    return aes.encrypt(raw)
-
-data_string = "明文"
-key = "key"
-bytes_data = aes_encrypt(data_string, key)  # 字节类型
-""" bytes_data
-b'\x9f\x1bVbf\x12\xa73\x91\xe5\x90\xb3fN\xe6\xfb'
-"""
-#-处理成字节数组输出-----------------------------
-result = [item for item in bytes_data]
-# [90, 225, 86, 181, 156, 148, 2, 159, 200, 207, 55, 108, 254, 122, 41, 252]
-print(result)
-#------------------------------------------------
-value = base64.encodebytes(bytes_data)
-result = value.replace(b"\n", b'')  # python得到的结果会有\n, java的没有 要注意对比
-print(result)
-```
-
-
-
-
-
-
-
-
-
-
 
 ## sha256
 
