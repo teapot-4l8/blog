@@ -1,5 +1,6 @@
 ---
 title: Fragmented knowledge from open courses
+category: 通用知识
 published: 2024-01-14
 description: as you see on the title
 tags: [AI]

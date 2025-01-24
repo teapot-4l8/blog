@@ -1,7 +1,7 @@
 ---
 title: web爬虫基础知识
 published: 2023-08-01
-tags: [笔记, Python, Java, English, 爬虫]
+tags: [笔记, Python, Java, English]
 draft: false
 category: 网页爬虫
 lang: 'English'
@@ -19,15 +19,33 @@ print(r)
 
 will be fine
 
+## devtools preference setting
+
+![image-20250124211205502](Web爬虫.assets/image-20250124211205502.png)
+
+## breakpoint tips
+
+sometimes we only except the certain url at the breakpoint
+
+right click 
+
+![image-20250124224214954](Web爬虫.assets/image-20250124224214954.png)
+
+![image-20250124224700939](Web爬虫.assets/image-20250124224700939.png)
+
+
+
 ## change UA on devtools
 
 ![image-20241003133453070](Web爬虫.assets/image-20241003133453070.png)
 
 ## convert curl 2 python
 
+https://curlconverter.com/
+
 in pycharm's market, search `Headers`. this plugin let you copy headers in develop tools and paste it in pycharm conveniently. just right click and choose `Headers` -> `Headers`
 
-## encrypt numbers
+## magic numbers for encrypting
 
 - sha1
 
@@ -101,7 +119,28 @@ s = "http://www.baidu.com/s?wd=%E5%A4%A7%E7%8E%8B"
 print(unquote(s))  # http://www.baidu.com/s?wd=大王
 ```
 
+## session
 
+```python
+import requests
+session = requests.session()
+# 全局的请求头 每次请求都有
+session.headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+}
+
+# 1. 加载第一个请求
+session.get("https://user.wangxiao.cn/login?url=http%3A%2F%2Fks.wangxiao.cn%2F")
+# print(session.cookies)
+# 2. 加载验证码图片
+img_resp = session.post("https://user.wangxiao.cn/apis//common/getImageCaptcha",
+                        headers={
+                            "Content-Type": "application/json;charset=UTF-8"
+                        })  # 两个请求头会合并在一起  一次性请求头 只有这个请求会有它
+print(img_resp.request.headers)  # 看看请求头
+```
+
+![image-20250124205847743](Web爬虫.assets/image-20250124205847743.png)
 
 
 

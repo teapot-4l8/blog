@@ -1,8 +1,8 @@
 ---
 title: js 逆向笔记
-published: 2022-07-01
+published: 2024-06-06
 tags: [js逆向, Python, English]
-draft: true
+draft: false
 category: 网页爬虫
 ---
 
@@ -223,9 +223,83 @@ if you only want to search the word `X-S`, just type in x-s will contain a bunch
 
 - ![image-20241013233020739](js逆向.assets/image-20241013233020739.png)
 
+## RSA
+
+ **`e = 65537` is it's feature, remember it, `010001,10001` also a hex version of e**
+
+in front-end, there are two methods to do an RSA algorithm:
+
+1. No Padding : python not recommended, use js to do it.
+2. PKCS padding: python can only do this.
+
+these are two totally different libraries
+
+- encrypt
+
+```python
+# 加密流程(我们最有用的地方) 我们在客户端(js)
+from Crypto.PublicKey import RSA  # 管理秘钥的
+from Crypto.Cipher import PKCS1_v1_5  # 用来加密的
+import base64
+
+# 1. 加载秘钥(公钥)
+pub_key = RSA.import_key(open("public.pem", mode='rb').read())
+# 2. 创建加密器
+rsa = PKCS1_v1_5.new(key=pub_key)
+# 3. 加密
+s = "我的xp不能让任何人知道".encode("utf-8")
+bs = rsa.encrypt(s)
+# print(bs)
+print(base64.b64encode(bs).decode())
+# rsa加密后的东西. 如果不是纯数学算法. 每次都是随机的.
+```
+
+```
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzyOrnwC/kJARZQRjPXQJ
+kT8kDo79Y0e9DuLicRABy2x+l3JZMh5Hy98gRcQsYbGdTE1qYG1OvbaJkxbEys4b
+yDJ0pEYNs3b/O3+chZsdLyypgFIp9DtqMWFfxDeXZ9xvNO6sZQ1S0jQ8APQvQeoI
+Ux/WKDsbl+bwUCPzd90CiP7dyfgCBB+9lJ9Kpyg/a3jwQUsE/2ppwfCwvuVMiLXD
+wZ4A7M+Jwf5kZil2bgxL+Hc0vlIS7zFVp2rcp/mUoS++vlbj8ZlkeDHrbbGZEwZg
+WgZRJlGbWF13QitN8pD9yQgTc/BaeY25q6s/wmif2Lxo+vVbfQlBLaxw2Ojd5Itl
+owIDAQAB
+-----END PUBLIC KEY-----
+```
+
+- decrypt(barely used)
+
+```python
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_v1_5
+import base64
+# 解密的流程(我们几乎不用)
+xp = 'wG1U+fawSbSg0RNWi59ox3CnLCjhyErZqpDw5/IZLHcA5jBq/ify0dUuK+clIypNVj0kpTNR/CaTni9zHjNmfmk99AW1AFvNU6jzBI1+Pj5E1QJtXkYc2NVL8whkTFXgeoZ3fTp+IvinfUvNUmfiXsIoEn2Ngp0C4sTqHSw7iiHRhmeEr7NdGvBrbkl4yyNTNtiQjWv+e5uKe0G0Pvq/3jKiCvFa/iI0wryXDDyDyUjl5Mou1/QtkfIPpTPFkLYRoYpNzwssoo9urp5LNiO5oL9nnc0e08P3zdtZsUn+bvnmJQIre8D7+/wL6IB3k+CHJkU0c4ge6szrfKToUAF2tw=='
+# 1. 加载私钥
+private_key = RSA.import_key(open("private.pem", mode="rb").read())
+# 2. 创建加密器
+rsa = PKCS1_v1_5.new(key=private_key)
+# 3. 解密
+result = rsa.decrypt(base64.b64decode(xp), None)
+print(result.decode("utf-8"))
+```
+
+
+
+
+
+
+
+
+
 # Convert to python
 
 (see 安卓逆向工具书 for codes)
+
+
+
+
+
+
 
 # Complement the environment
 
