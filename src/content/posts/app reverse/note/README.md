@@ -1982,7 +1982,7 @@ print([i for i in data])
 # [139, 39, 237, 84, 210, 106, 193, 67, 235, 131, 61, 22, 148, 124, 228, 195, 144, 119, 110, 86, 133, 183, 177, 102, 72, 98, 125, 129, 195, 41, 87, 228]
 ```
 
-解密
+#### 解密
 
 ```python
 data = 'iyftVNJqwUPrgz0WlHzkw5B3blaFt7FmSGJ9gcMpV+Q='
@@ -1991,7 +1991,11 @@ print(byte_data)  # b"\x8b'\xedT\xd2j\xc1C\xeb\x83=\x16\x94|\xe4\xc3\x90wnV\x85\
 aes = AES.new(key=b"fd6b639dbcff0c2a1b03b389ec763c4b", iv=b"77b07a672d57d64c", mode=AES.MODE_CBC)
 real_byte_data = aes.decrypt(byte_data)
 print(real_byte_data) # b'\xe4\xbc\x9a\xe5\x86\x99\xe7\x82\xb9\xe4\xbb\xa3\xe7\xa0\x81\xe7\x9a\x84\xe6\x9c\xac\xe5\xad\x90\xe7\x94\xbb\xe6\x89\x8b\x02\x02'
-print(real_byte_data.decode("utf-8")) # 会写点代码的本子画手  如果在加密时做了填充，可以把后面填充的东西干掉
+
+# 如果在加密时做了填充，可以把后面填充的东西干掉
+# unpad(real_byte_data, 16)
+
+print(real_byte_data.decode("utf-8")) # 会写点代码的本子画手  
 # real_byte_data = unpad(real_byte_data, 16)
 ```
 
