@@ -76,6 +76,12 @@ document= {};
 window= global;
 ```
 
+- dict 2 json
+
+```python
+json.dumps(data, separators=(',', ':'))  # no blank between them
+```
+
 
 
 页面数据搜不到的三个原因：
