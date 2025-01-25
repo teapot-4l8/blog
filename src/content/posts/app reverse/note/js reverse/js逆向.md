@@ -163,35 +163,6 @@ response = requests.post('https://edith.xiaohongshu.com/api/sns/web/v1/homefeed'
 
 ## Analysis tips
 
-### ajax
-
-```javascript
-// ajax完整的流程
-var xhr = new XMLHttpRequest();
-
-xhr.open(method, url);
-// xhr.open("get", url?xxx=xxxx&xxx=xxx); // get请求的请求体是空的
-
-xhr.onreadystatechange = function(){  // response need to be decrypted, check it out
-    if(xhr.readyState == 4){
-        if(xhr.status == 200){
-            xhr.responseText; // 响应的内容  
-        }
-    }
-}
-
-```
-
-### axios
-
-`Promise.then` in Initiator, search `interceptors` to locate.
-
-![image-20250125210315339](js逆向.assets/image-20250125210315339.png)
-
-the first three dont need to check, they are axios's source code. remember it!
-
-
-
 ### `sent`
 
 the value of  `sent` comes from the privious `return`
@@ -248,9 +219,7 @@ if you find the place, untag the hook thing, then ctrl shift r refresh, then you
 
 ## search tips
 
-- if you only want to search the word `X-S`, just type in x-s will contain a bunch of useless shit, `\bX-S\b`
-
-
+if you only want to search the word `X-S`, just type in x-s will contain a bunch of useless shit, `\bX-S\b`
 
 ## 瑞数特征
 
