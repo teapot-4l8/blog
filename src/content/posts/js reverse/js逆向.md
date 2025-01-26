@@ -246,11 +246,45 @@ there is another way, just use extension!
 
 if you find the place, untag the hook thing, then ctrl shift r refresh, then you get the correct breakpoint!
 
+## b64pic
+
+a picture return llike
+
+![image-20250126191045927](js逆向.assets/image-20250126191045927.png)
+
+```python
+session = requests.session()
+session.headers = {...}
+
+verify_img_url = "https://user.wangxiao.cn/apis//common/getImageCaptcha"
+resp = session.post(verify_img_url, headers={
+    "content-type":"application/json;charset=UTF-8"  # 特殊的头信息
+})
+img_bs = base64.b64decode(resp.json()['data'].split(',')[-1])
+with open("tu.png", mode="wb") as f:
+    f.write(img_bs)
+```
+
+## verify code
+
+```python
+import ddddocr
+# 识别验证码
+dddd = ddddocr.DdddOcr(show_ad=False)
+verify_code = dddd.classification(img_bs)
+```
+
+
+
+
+
 ## search tips
 
 - if you only want to search the word `X-S`, just type in x-s will contain a bunch of useless shit, `\bX-S\b`
 
-
+1. initiator
+2. /xxx/xxxx/xxx from end to front
+3. params
 
 ## 瑞数特征
 
@@ -263,6 +297,29 @@ if you find the place, untag the hook thing, then ctrl shift r refresh, then you
 ## RSA
 
  **`e = 65537` is it's feature, remember it, `010001,10001` also a hex version of e**
+
+### RSA 1
+
+![image-20250125172255743](js逆向.assets/image-20250125172255743.png)
+
+eg: 网易云
+
+its an old RSA library, just use `github_url ` TODO to copy cv. **its result is fixed, not randomly.**
+
+### RSA  2
+
+```
+node install node-jsencrypt
+```
+
+```javascript
+var JSEncrypt = require("node-jsencrypt");
+
+var enc = new JSEncrypt();
+enc.setPublicKey("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp9klAzVIHt2MLVdjdtSb2MAeioBPbJtUg6tWHybZtFwb/KK1J+AapWyiBAV2FWs7ruiK0HuXmXH5HijtLI4LqUOUNBMtVH/BoCJkj22+iQJg5+o3uqvRoEXceIUgqdXpcz+1dvJCQvDOMP8U1bhd9u4pzOroNZIic9ifzX1D6pGVPzhNPAHc+105AUkKOysGibQYzz148vO+Gxzx5XFtYUtNjDrvfojtEs4hb9aSTjCGkaiupJu4HhyXP9wQ0JUGvQQlvHYTHA+WOPwijOQSS0dPdxmHwSsMguvRRpXQya4OPXnvc+6ydgMZ1TC/DCGGWlaNQm7t0JfiwY6iuA1ipwIDAQAB");
+var mi = enc.encrypt("星际拓荒，启动！");
+console.log(mi);
+```
 
 in front-end, there are two methods to do an RSA algorithm:
 
@@ -320,9 +377,13 @@ result = rsa.decrypt(base64.b64decode(xp), None)
 print(result.decode("utf-8"))
 ```
 
+### RSA 3
 
+`encryptLong()`: use `node-encrypt-js` to handle it
 
+![image-20250126181852176](js逆向.assets/image-20250126181852176.png)
 
+![image-20250126181947821](js逆向.assets/image-20250126181947821.png)
 
 
 
