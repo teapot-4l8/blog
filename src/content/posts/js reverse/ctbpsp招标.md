@@ -1,8 +1,8 @@
 ---
 title: 全国招标公告公示搜索引擎数据解密
 published: 2024-01-23
-description: "DES解密"
-tags: ["Javascript", "Python", "DES"]
+description: DES解密
+tags: [Javascript, Python, DES, js逆向]
 category: 网页爬虫
 draft: false
 ---
