@@ -36,9 +36,33 @@ check out `At`, we got `requestInterceptors`
 ![image-20250126101050580](hfhuizhan滨湖会展.assets/image-20250126101050580.png)
 
 ```python
+def enc_data(s):
+    key = "$shanghaidianqi$".encode("utf-8")
+    iv = "2023050814260000".encode("utf-8")
+    aes = AES.new(
+        key=key,
+        mode=AES.MODE_CBC,
+        iv=iv
+    )
+    raw = pad(s.encode('utf-8'), 16)
+    b = aes.encrypt(raw)
+    return base64.b64encode(b).decode()
+
+
+s = "/prod-api/hfhz-pavilion/back/pto/pavilion/getLatestExhibition=undefined"
+data = enc_data(s)
+print(data)  # ‘U1tYc6MIt/gPHlztiOuAHBEmV/vYxyFhT9c7gcRpTPFaRxJuAR11Xb1wSxhtqaZYYGjQv2sTrXalXeryqwEeSiEX5WlU7516ov1dcUr978w=’
+
+params = {
+    'data': data,
+}
+
+response = requests.get(
+    'https://www.hfhuizhan.com/prod-api/hfhz-pavilion/back/pto/pavilion/getLatestExhibition',
+    params=params,
+    headers=headers,
+)
 ```
-
-
 
 ## response decryption
 
@@ -76,3 +100,81 @@ boom
 
 ![image-20250126114907521](hfhuizhan滨湖会展.assets/image-20250126114907521.png)
 
+```python
+from Crypto.Cipher import AES
+# from Crypto.Util.Padding import pad, unpad
+import base64
+
+s = "too long..."
+
+key = "$shanghaidianqi$".encode("utf-8")
+iv = "2023050814260000".encode("utf-8")
+aes = AES.new(
+    key=key,
+    mode=AES.MODE_CBC,
+    iv=iv
+)
+
+b = aes.decrypt(base64.b64decode(s))
+print(b.decode("utf-8"))
+```
+
+## pure js
+
+```javascript
+var jt = {}; // pay attention to this kind of format
+jt.a = require("crypto-js");  // jt.a.enc.Utf8.parse
+
+var Zt = "$shanghaidianqi$";
+var Vt = "2023050814260000";
+var sr = function(Xe) {
+    Xe = JSON.stringify(Xe);  // add this line to transform py dict to string
+            var ot = jt.a.enc.Utf8.parse(Zt)
+              , Kt = jt.a.enc.Utf8.parse(Vt)
+              , kt = jt.a.AES.encrypt(Xe, ot, {
+                iv: Kt,
+                mode: jt.a.mode.CBC,
+                padding: jt.a.pad.Pkcs7
+            });
+            return JSON.stringify({
+                data: kt.toString()
+            });  // return JSON
+        }
+var mr = function(Xe) {
+    var ot = jt.a.enc.Utf8.parse(Zt)
+      , Kt = jt.a.enc.Utf8.parse(Vt)
+      , kt = jt.a.AES.decrypt(Xe, ot, {
+        iv: Kt,
+        mode: jt.a.mode.CBC,
+        padding: jt.a.pad.Pkcs7
+    })
+      , yr = kt.toString(jt.a.enc.Utf8);
+    return JSON.parse(yr.toString());
+}
+```
+
+```python
+import json
+import requests
+import execjs
+
+f = open("binhu.js", mode="r", encoding="utf-8")
+js_code = f.read()
+f.close()
+js = execjs.compile(js_code)
+
+url = "https://www.hfhuizhan.com/prod-api/hfhz-exhibition/back/exhibition/listExhibitionNotPage"
+
+# its api is different with what i've been working for that's not the point though
+ming_data = {
+    "yyyyMM": "2024-11"
+}
+
+ret = js.call("sr", ming_data)
+
+# my_headers = {...}
+
+resp = requests.post(url, data=ret, headers=my_headers)
+ming = js.call("mr", resp.text)  # it can trigger UnicodeDecodeError. dont konw why :(
+print(ming)
+```
