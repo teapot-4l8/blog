@@ -1,5 +1,5 @@
 ---
-title: jeb
+title: jeb note 
 published: 2024-12-28
 description: jeb related tips
 category: 通用知识
