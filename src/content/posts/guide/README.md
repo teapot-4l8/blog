@@ -3,7 +3,7 @@ title: 小迪网安摘要
 description: 小迪网安速记，自用
 published: 2025-01-26
 tags: [网安]
-draft: true
+draft: false
 category: 通用知识
 ---
 
