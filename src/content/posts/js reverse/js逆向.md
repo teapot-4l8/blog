@@ -14,6 +14,16 @@ https://docs.qq.com/sheet/DTWxLdElla0JrWFdp?tab=BB08J2
 
 # Basic Knowledge
 
+- if using `b64decode` raise error like. replace it with `urlsafe_b64decode`
+
+```
+  File "d:********", line 94, in <module>
+    decrypted_data = unpad(aes.decrypt(decoded_data), AES.block_size)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 246, in decrypt
+    raise ValueError("Data must be padded to %d byte boundary in CBC mode" % self.block_size)
+ValueError: Data must be padded to 16 byte boundary in CBC mode
+```
+
 - search a specific word`xxx` do not get similar word ->`\bxxx\b`
 - transform a dictionary to a `a=123&b=&c=456&province=%E9%9D&name=` like thing
 
