@@ -256,6 +256,27 @@ there is another way, just use extension!
 
 if you find the place, untag the hook thing, then ctrl shift r refresh, then you get the correct breakpoint!
 
+## debug tips
+
+when you can't find any error base static analysis.
+
+replace js file, fix random values such as those from random and time to specific values. Add this snippet.
+
+```javascript
+Date.prototype.getTime = function() {
+    return 1733498813000;
+}
+Math.random = function() {
+    return 0.123456;
+}
+```
+
+dont matter, i personally deem it is not so convenient as my method :P
+
+here is method two: use charles to compare requests
+
+
+
 ## b64pic
 
 a picture return llike
