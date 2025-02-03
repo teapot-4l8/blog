@@ -118,7 +118,7 @@ F2设置断点
 
 ## attach(IDA 7.5)
 
-PAY ATTENTION : make sure you have clicked your apps functional place to load the target so file 
+PAY ATTENTION : make sure you have clicked your apps functional place to load the target so file . **don't open any so file**
 
 ![image-20241228210148803](IDA特训.assets/image-20241228210148803.png)
 
@@ -133,3 +133,20 @@ double click your target
 choose `Text view`, `F2` to set a breakpoint. `F8` to next step
 
 ## launch(IDA 8.3)
+
+C:\Users\Administrator\AppData\Local\Android\Sdk\tools
+
+monitor.bat
+
+
+
+
+
+
+
+
+
+
+
+
+

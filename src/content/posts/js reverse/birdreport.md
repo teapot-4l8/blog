@@ -1,7 +1,7 @@
 ---
 title: 中国观鸟记录中心
 category: 网页爬虫
-puslished: 2025-02-03
+published: 2025-02-03
 description: 请求头Requestid,Sign加密,请求Form Data名称加密,返回data解密.
 tags: [js2py, 扣代码, RSA, AES, md5, encryptLong, urlencode]
 draft: false
