@@ -5,6 +5,7 @@ description: Payload sign加密，请求返回解密
 tags: [Javascript, Python, DES, md5, English, js逆向, 扣代码]
 category: 网页爬虫
 draft: false
+lang: en
 ---
 
 ## Payload: sign

@@ -5,6 +5,7 @@ description: "How to use this blog template."
 tags: ["ios逆向", 笔记, English]
 category: ios
 draft: false
+lang: en
 ---
 
 # jailbreak

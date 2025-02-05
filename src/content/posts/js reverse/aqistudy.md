@@ -5,7 +5,7 @@ published: 2025-01-30
 tags: [Python, Javascript, English, VM, 无限debug, js2py, 扣代码, md5, base64]
 description: 请求参数加密，响应解密
 draft: false
-lang: English
+lang: en
 ---
 
 https://www.aqistudy.cn/

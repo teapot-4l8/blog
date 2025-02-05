@@ -4,6 +4,7 @@ published: 2023-08-01
 tags: [笔记, unidbg, Java, English]
 category: Android
 draft: false
+lang: en
 ---
 
 # 环境搭建 

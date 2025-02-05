@@ -1,8 +1,8 @@
 ---
 title: 安卓逆向工具书
 published: 2024-12-01
-description: "文件较大，加载时间较长，请耐心等待"
-tags: ["app逆向", "Java", "Javascript", "Python", 笔记]
+description: 文件较大，加载时间较长，请耐心等待
+tags: [app逆向, 笔记]
 category: Android
 draft: false
 ---

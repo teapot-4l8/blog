@@ -5,6 +5,7 @@ description: jeb related tips
 category: 通用知识
 tags: [jeb, English]
 draft: false
+lang: en
 ---
 
 # open jeb with specific jdk 

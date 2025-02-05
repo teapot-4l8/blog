@@ -4,6 +4,7 @@ published: 2024-06-06
 tags: [js逆向, Python, English]
 draft: false
 category: 网页爬虫
+lang: en
 ---
 
 ![image-20240702230443126](js逆向.assets/image-20240702230443126.png)

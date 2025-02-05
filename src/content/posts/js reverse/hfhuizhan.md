@@ -5,6 +5,7 @@ category: 网页爬虫
 tags: [AES, Python, Javascript, js2py, English, js逆向, 异步调试]
 published: 2025-01-26
 draft: false
+lang: en
 ---
 
 target： https://www.hfhuizhan.com

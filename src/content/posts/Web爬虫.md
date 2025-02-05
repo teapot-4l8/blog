@@ -1,10 +1,10 @@
 ---
 title: web爬虫基础知识
 published: 2023-08-01
-tags: [笔记, Python, Java, English]
+tags: [笔记, English]
 draft: false
 category: 网页爬虫
-lang: 'English'
+lang: en
 ---
 
 # basic knowledge
@@ -212,6 +212,10 @@ just change `asyncio.run(main())` into
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 ```
+
+
+
+
 
 # data base
 
@@ -460,11 +464,33 @@ mv /sdcard/c8750f0d.0 /system/etc/security/cacerts
 chmod 644 /system/etc/security/cacerts/c8750f0d.0
 ```
 
-## Charles
+# proxy
 
-proxy 192.168.43.71
+- clash
 
-port 8888
+````python
+proxy = {
+    "http": "http://127.0.0.1:7890",
+    "https": "http://127.0.0.1:7890"
+}
+````
+
+- charles
+
+```python
+proxy = {
+    "http": "http://127.0.0.1:8888",
+    "https": "http://127.0.0.1:8888"
+}
+```
+
+- mitm
+
+
+
+
+
+- brupsuit
 
 
 

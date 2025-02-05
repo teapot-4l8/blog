@@ -4,7 +4,8 @@ published: 2024-12-28
 tags: ["app逆向", "Java", 笔记, jadx, debug, English]
 category: Android
 description: use MT Manager to modify applications, use jadx/jeb to debug applications.
-draft: true
+draft: false
+lang: en
 ---
 
 # modify static resource

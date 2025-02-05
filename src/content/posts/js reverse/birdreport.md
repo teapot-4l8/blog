@@ -5,7 +5,7 @@ published: 2025-02-03
 description: 请求头Requestid,Sign加密,请求Form Data名称加密,返回data解密.
 tags: [js2py, 扣代码, RSA, AES, md5, encryptLong, urlencode]
 draft: false
-lang: English
+lang: en
 ---
 
 https://www.birdreport.cn/home/search/report.html?search=eyJ0YXhvbmlkIjoiIiwic3RhcnRUaW1lIjoiIiwiZW5kVGltZSI6IiIsInByb3ZpbmNlIjoi6Z2S5rW355yBIiwiY2l0eSI6IiIsImRpc3RyaWN0IjoiIiwicG9pbnRuYW1lIjoiIiwidXNlcm5hbWUiOiIiLCJzZXJpYWxfaWQiOiIiLCJjdGltZSI6IiIsInRheG9ubmFtZSI6IiIsInN0YXRlIjoiIiwibW9kZSI6IjAiLCJvdXRzaWRlX3R5cGUiOjB9

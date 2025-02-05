@@ -5,6 +5,7 @@ tags: [Python, Javascript, RSA, js2py, js逆向, English]
 published: 2025-01-26
 draft: false
 description: param 加密
+lang: en
 ---
 
 https://ec.minmetals.com.cn/open/home/purchase-info
