@@ -274,7 +274,7 @@
 
 		function f() {
 			(a[u] === r ? i : n)()
-		}
+		} 
 
 		q(e, t), n = t, i = e, void 0 !== (a = document).hidden ? (r = "hidden", c = "visibilitychange", u = "visibilityState") : void 0 !== a.mozHidden ? (r = "mozHidden", c = "mozvisibilitychange", u = "mozVisibilityState") : void 0 !== a.msHidden ? (r = "msHidden", c = "msvisibilitychange", u = "msVisibilityState") : void 0 !== a.webkitHidden && (r = "webkitHidden", c = "webkitvisibilitychange", u = "webkitVisibilityState"), a.removeEventListener(c, f, !1), a.addEventListener(c, f, !1), te = window.setInterval(function() {
 			if (!(o.isSuspend || l || ee())) {
