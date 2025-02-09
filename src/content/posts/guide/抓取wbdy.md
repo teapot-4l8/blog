@@ -95,15 +95,13 @@ OK, 接下来, 我们去页面源代码中看一看(一定要去页面源代码�
 后期解析起来的整体思路也就出来了. 
 
 1. 下载每一个ts文件
-
 2. 获取到秘钥key
-
 3. 使用AES对ts文件进行解密. 
-
 4. 将众多ts文件合并为MP4文件.  
 
-
 ## 3. 代码
+
+不如 https://www.yeyulingfeng.com/tools/m3u8-downloader/
 
 ```python
 # <video src="http://www.baidu.com/苍井空.mp4"></video>

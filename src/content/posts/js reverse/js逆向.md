@@ -1,4 +1,6 @@
 ---
+
+
 title: js 逆向笔记
 published: 2024-06-06
 tags: [js逆向, Python, English]
@@ -259,6 +261,20 @@ if you find the place, untag the hook thing, then ctrl shift r refresh, then you
 
 ## debug tips
 
+### 反调试
+
+*可以hook onbeforeunload事件, 当窗口跳转的时候, 可以断住*
+
+**不要太新的浏览器, 在老一些的浏览器上, 或者在新的浏览器上(偶尔)能看到调用栈.* *直接把页面跳转的代码干掉(本地替换)*
+
+```javascript
+window.onbeforeunload = function(){
+    debugger;
+}
+```
+
+---
+
 when you can't find any error base static analysis.
 
 replace js file, fix random values such as those from random and time to specific values. Add this snippet.
@@ -417,19 +433,9 @@ print(result.decode("utf-8"))
 
 ![image-20250126181947821](js逆向.assets/image-20250126181947821.png)
 
+# sojson
 
-
-
-
-# Convert to python
-
-(see 安卓逆向工具书 for codes)
-
-
-
-
-
-
+https://www.jsjiami.com/
 
 # Complement the environment
 
