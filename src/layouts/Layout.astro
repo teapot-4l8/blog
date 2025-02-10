@@ -76,7 +76,11 @@ const bannerOffset =
 	  data-overlayscrollbars-initialize
 >
 	<head>
-		<script is:inline src={url('/js/global.js')}></script>
+		<!-- 先加载 CryptoJS -->
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+		
+		<!-- 然后加载我们的脚本 -->
+		<script is:inline defer src={url('/js/global.js')}></script>
 
 		<meta name="google-site-verification" content="zsMJ0eX8CUO-vyRQZJ43upO8DY0ebgbYQyb1-8y8mBQ" />
 

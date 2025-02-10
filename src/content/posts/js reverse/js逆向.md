@@ -437,6 +437,152 @@ print(result.decode("utf-8"))
 
 https://www.jsjiami.com/
 
+## v5
+
+![image-20250209211758519](js逆向.assets/image-20250209211758519.png)
+
+定时特征,可以hook它。无限Debug。本地替换，添加代码.
+
+```javascript
+setInterval(function1, 100)
+```
+
+```javascript
+// hook setInterval
+var setInterval_ = setInterval
+setInterval = function () {
+    debugger;
+    // 不让它执行正常的了. 直接怼死
+    return;
+}
+```
+
+但是这样不太好，可能会影响整体逻辑，所以需要原本 `setInterval` 的后面还原它
+
+```javascript
+setInterval = setInterval_
+```
+
+---
+
+注意，在maplocal的时候，**本地文件不要格式化**，因为它可能导致代码报错！说明代码里有检测格式化的地方。
+
+检测方法：toString + 正则。所以hook toString 找到检测代码格式化的地方。输出检测代码，调用栈找到检测位置
+
+```javascript
+var func_toString = Function.prototype.toString;
+
+Function.prototype.toString = function(){
+    var s = func_toString.apply(this, arguments);
+    console.log(s);
+    debugger;
+    return s;
+}
+```
+
+![image-20250209213852572](js逆向.assets/image-20250209213852572.png)
+
+![image-20250209214053436](js逆向.assets/image-20250209214053436.png)
+
+所以它是在检测`removeCookie`这个函数的格式。把格式化之前的代码替换上去就行
+
+---
+
+## v6
+
+又一个无限debugger,调用栈往下找一个
+
+![image-20250210161607799](js逆向.assets/image-20250210161607799.png)
+
+```javascript
+Function = function() {
+    for(var i = 0; i < arguments.length; i++) {
+        arguments[i] = arguments[i].replace("debugger", "");
+    }
+}
+ // bypass such a shit
+```
+
+本地替换 格式化代码后问题同v5.
+
+tips：输入`this`可以快速定位到函数
+
+![image-20250210162743935](js逆向.assets/image-20250210162743935.png)
+
+---
+
+消失的 `console.log`
+
+![image-20250210164847409](js逆向.assets/image-20250210164847409.png)
+
+在前面把它留起来
+
+```javascript
+var printf = console.log;
+```
+
+![image-20250210165113315](js逆向.assets/image-20250210165113315.png)
+
+## v7
+
+同上，打开F12后出现debugger
+
+![image-20250210170447717](js逆向.assets/image-20250210170447717.png)
+
+---
+
+格式化代码，加上hook
+
+![image-20250210171353423](js逆向.assets/image-20250210171353423.png)
+
+退出，重新进那个链接，要提前打开F12
+
+然后按照之前的方法替换函数。当你发现总是有眼熟的函数轮换出现，就直接注销调hook函数里的debugger，然后放开，发现页面还是加载不出来，在console里往回看，发现还是有个函数没改，把那个函数改了。
+
+---
+
+console.log 还是不能用，同上。
+
+# JSFuck &  AAEncode
+
+本质是字符串，所以一定会有`eval`.通法
+
+```javascript
+(function(){
+    var eval_ = eval;
+    eval = function(s){
+        console.log(s);
+        debugger;
+        return eval_.apply(this, arguments);
+    };
+})();
+
+```
+
+![image-20250210204024776](js逆向.assets/image-20250210204024776.png)
+
+![image-20250210204113609](js逆向.assets/image-20250210204113609.png)
+
+---
+
+```javascript
+var Function_ = Function.prototype.constructor;
+Function.prototype.constructor = function(){
+    debugger;
+    return Function_.apply(this, arguments);
+};
+```
+
+找到加载VM的地方，进去，找到VM中的解密函数
+
+```javascript
+var Function_ = Function;
+var Function = function(){
+    debugger;
+    return Function_.apply(this, arguments);
+};
+```
+
 # Complement the environment
 
 - http://39.105.154.231:3000/play/66190 
