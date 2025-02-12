@@ -1,7 +1,7 @@
 ---
 title: 五矿请求数据加密
 category: 网页爬虫
-tags: [Python, Javascript, RSA, js2py, js逆向, English]
+tags: [RSA, js2py, js逆向, English]
 published: 2025-01-26
 draft: false
 description: param 加密

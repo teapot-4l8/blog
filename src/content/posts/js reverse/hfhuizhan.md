@@ -2,7 +2,7 @@
 title: 合肥滨湖国际会展中心
 description: 请求data加密，返回数据解密
 category: 网页爬虫
-tags: [AES, Python, Javascript, js2py, English, js逆向, 异步调试]
+tags: [AES, js2py, English, js逆向, 异步调试]
 published: 2025-01-26
 draft: false
 lang: en

@@ -3,7 +3,7 @@
 
 title: js 逆向笔记
 published: 2024-06-06
-tags: [js逆向, Python, English]
+tags: [js逆向, English]
 draft: false
 category: 网页爬虫
 lang: en
@@ -556,7 +556,6 @@ console.log 还是不能用，同上。
         return eval_.apply(this, arguments);
     };
 })();
-
 ```
 
 ![image-20250210204024776](js逆向.assets/image-20250210204024776.png)

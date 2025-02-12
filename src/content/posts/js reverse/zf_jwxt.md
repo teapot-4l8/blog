@@ -2,7 +2,7 @@
 title: 正方教务系统抢课
 published: 2022-12-01
 description: "仅限于正方教务系统"
-tags: ["Python", Javascript, 视频, 开源]
+tags: [视频, 开源]
 category: ？？？
 draft: false
 ---

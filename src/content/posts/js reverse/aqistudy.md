@@ -2,7 +2,7 @@
 title: 空气质量在线检测分析平台
 category: 网页爬虫
 published: 2025-01-30
-tags: [Python, Javascript, English, VM, 无限debug, js2py, 扣代码, md5, base64]
+tags: [English, VM, 无限debug, js2py, 扣代码, md5, base64]
 description: 请求参数加密，响应解密
 draft: false
 lang: en

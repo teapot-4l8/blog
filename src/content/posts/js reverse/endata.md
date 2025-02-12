@@ -2,7 +2,7 @@
 title: endata艺恩
 published: 2025-01-27
 category: 网页爬虫
-tags: [Python, Javascript, ob混淆, DES, 扣代码, js逆向]
+tags: [ob混淆, DES, 扣代码, js逆向]
 description: 返回票房数据解密， ob混淆, 
 ---
 

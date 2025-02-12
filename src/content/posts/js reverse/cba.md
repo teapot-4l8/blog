@@ -2,7 +2,7 @@
 title: 中国男子篮球职业联赛官网名单数据爬取
 published: 2025-01-25
 category: 网页爬虫
-tags: [Python, Javascript, AES, js2py, js逆向]
+tags: [AES, js2py, js逆向]
 draft: false
 description: 球队详情-基础资料 返回数据解密
 ---

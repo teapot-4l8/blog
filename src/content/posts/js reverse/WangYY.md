@@ -1,7 +1,7 @@
 ---
 title: 网易云
 category: 网页爬虫
-tags: [Python, Javascript, AES, RSA, 扣代码, js2py, js逆向]
+tags: [AES, RSA, 扣代码, js2py, js逆向]
 published: 2025-01-25
 draft: false
 description: 多角度的网易云逆向分析

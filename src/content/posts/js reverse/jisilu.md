@@ -2,7 +2,7 @@
 title: EZ AES
 description: 案例1 请求user_name,password加密, 案例2 数据解密
 category: 网页爬虫
-tags: [AES, Python, Javascript, js2py, English, js逆向]
+tags: [AES, js2py, English, js逆向]
 published: 2025-01-26
 draft: false
 lang: en

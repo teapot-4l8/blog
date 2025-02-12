@@ -82,7 +82,7 @@ export const profileConfig: ProfileConfig = {
     {
       name: '你看不见我',
       icon: 'heroicons-outline:chat-bubble-bottom-center-text',
-      url: 'mailto:cyz@ncepu.edu.cn'
+      url: 'mailto:mql@ncepu.edu.cn'
     }
   ],
 }
